@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row row-cols-1 offset-md-3 row-cols-md-2 align-items-center h-100">
+    <link rel="shortcut icon"
+          href="~/img/favicon.ico"
+          type="image/x-icon" />
+    <div class="col order-md-last">
+        <img class="~img-fluid app-logo"
+             src=""
+             alt="" />
+    </div>
+    <div class="col text-center rounded-3 bg-dark bg-opacity-25 text-white">
+        <!-- Change ME -->
+        <h2 class="display-6 fw-bold mt-3">Condo Consultants</h2>
+        <h2 class="display-6">A Coding Challenge:</h2>
+        <div class="lead">
+            Want to live in a highrise? Perhaps a luxurious view of the city.  Here at
+            Condo Consultants, we can help.  Use our mortgage calculator and see contact one of our
+            representatives to get the loan that fits.
+        </div>
+        <div class="d-flex justify-content-center">
+            <ul class="list-unstyled text-start">
+                <li>
+                    <i class="bi bi-check-square-fill"></i>
+                    CSS snd Bootstrap Layout
+                </li>
+                <li>
+                    <i class="bi bi-check-square-fill"></i>
+                    JavaScript Fundamentals
+                </li>
+                <li>
+                    <i class="bi bi-check-square-fill"></i>
+                    JavaScript Loops
+                </li>
+                <li>
+                    <i class="bi bi-check-square-fill"></i>
+                    JavaScript DOM Manipulation
+                </li>
+                <li>
+                    <i class="bi bi-check-square-fill"></i>
+                    Boolean Logic
+                </li>
+            </ul>
+        </div>
+        <a type="button"
+           asp-action="Index" asp-controller="LoanCalc"
+           class="btn btn-secondary border border-2 btn-lg">Try it Out!</a>
+        <div>
+            <h4 class="mt-3">Tech Stack</h4>
+            <div class="devicons">
+                <i class="devicon-javascript-plain colored"></i>
+                <i class="devicon-html5-plain colored"></i>
+                <i class="devicon-css3-plain colored"></i>
+                <i class="devicon-bootstrap-plain colored"></i>
+            </div>
+        </div>
+    </div>
+</div>

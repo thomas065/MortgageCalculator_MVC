@@ -1,0 +1,100 @@
+﻿@model Loan
+
+<div class="row row-cols-md-2">
+	<div class="col-12 col-md-4 gy-2 gy-md-0">
+		<div class="border border-3 border-black p-3 rounded bg-white bg-opacity-75">
+			<form asp-controller="LoanCalc" asp-action="Index" method="post">
+				<div>
+					<label asp-for="Amount" class="form-label"><strong>Loan Amount</strong></label>
+					<input type="number"
+						   class="form-control"
+						   asp-for="Amount"
+						   min="0"
+						   step="100"
+						   placeholder="25000"/>
+				</div>
+				<div>
+					<label asp-for="Term" class="form-label"><strong>Term (Months)</strong></label>
+					<input type="number"
+						   class="form-control"
+						   asp-for="Term"
+						   min="1"
+						   placeholder="60" />
+				</div>
+				<div>
+					<label asp-for="Rate" class="form-label"><strong>Interest Rate</strong></label>
+					<input type="number"
+						   class="form-control"
+						   asp-for="Rate"
+						   min="0"
+						   step=".01"/>
+				</div>
+				<div class="text-end m-3">
+					<button class="fw-bold shadow"
+							id="calculate"
+							type="submit">
+						Calculate
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-12 col-md-8 order-first order-md-last">
+		<div class="border border-3 border-black text-center rounded h-100 bg-white bg-opacity-75">
+			<h1>Your Monthly Payments</h1>
+			<div class="my-5">
+				<span class="display-4 text-success fw-bold"
+					  id="displayPage">@Model.Payment.ToString("C")</span>
+			</div>
+			<div class="row row-cols-2 ps-3 pe-3">
+				<div class="col-6 text-start">
+					<strong>Total Principal:</strong>
+				</div>
+				<div class="col-6 text-end">
+					<strong id="totalPrincipal">@Model.Amount.ToString("C")</strong>
+				</div>
+				<div class="col-6 text-start">
+					<strong>Total Interest:</strong>
+				</div>
+				<div class="col-6 text-end">
+					<strong id="totalInterest">@Model.TotalInterest.ToString("C")</strong>
+				</div>
+				<div class="col-6 text-start">
+					<strong>Total Cost:</strong>
+				</div>
+				<div class="col-6 text-end">
+					<strong id="totalCost">@Model.TotalCost.ToString("C")</strong>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-12 table-responsive scrollMe mt-2 border border-3 border-black">
+	<table class="table table-striped table-hover table-bordered">
+		<thead class="table-secondary">
+			<tr>
+				<th>Month</th>
+				<th>Payment</th>
+				<th>Principal</th>
+				<th>Interest</th>
+				<th>Total Interest</th>
+				<th>Balance</th>
+			</tr>
+		</thead>
+		<tbody id="calculation-table" style="overflow-y:auto;">
+
+			<!-- calculations go here -->
+			@foreach (LoanPayment loanPayment in Model.LoanPayments)
+			{
+				<tr>
+					<td>@loanPayment.Month</td>
+					<td>@loanPayment.Payment.ToString("C")</td>
+					<td>@loanPayment.MonthlyPrincipal.ToString("C")</td>
+					<td>@loanPayment.MonthlyInterest.ToString("C")</td>
+					<td>@loanPayment.TotalInterest.ToString("C")</td>
+					<td>@loanPayment.Balance.ToString("C")</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
