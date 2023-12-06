@@ -1,4 +1,5 @@
 ﻿@model Loan
+@using System.Globalization
 
 <div class="row row-cols-md-2">
 	<div class="col-12 col-md-4 gy-2 gy-md-0">
@@ -44,26 +45,26 @@
 			<h1>Your Monthly Payments</h1>
 			<div class="my-5">
 				<span class="display-4 text-success fw-bold"
-					  id="displayPage">@Model.Payment.ToString("C")</span>
+					  id="displayPage">@Model.Payment.ToString("C", CultureInfo.GetCultureInfo("en-US"))</span>
 			</div>
 			<div class="row row-cols-2 ps-3 pe-3">
 				<div class="col-6 text-start">
 					<strong>Total Principal:</strong>
 				</div>
 				<div class="col-6 text-end">
-					<strong id="totalPrincipal">@Model.Amount.ToString("C")</strong>
+					<strong id="totalPrincipal">@Model.Amount.ToString("C", CultureInfo.GetCultureInfo("en-US"))</strong>
 				</div>
 				<div class="col-6 text-start">
 					<strong>Total Interest:</strong>
 				</div>
 				<div class="col-6 text-end">
-					<strong id="totalInterest">@Model.TotalInterest.ToString("C")</strong>
+					<strong id="totalInterest">@Model.TotalInterest.ToString("C", CultureInfo.GetCultureInfo("en-US"))</strong>
 				</div>
 				<div class="col-6 text-start">
 					<strong>Total Cost:</strong>
 				</div>
 				<div class="col-6 text-end">
-					<strong id="totalCost">@Model.TotalCost.ToString("C")</strong>
+					<strong id="totalCost">@Model.TotalCost.ToString("C", CultureInfo.GetCultureInfo("en-US"))</strong>
 				</div>
 			</div>
 		</div>
@@ -88,11 +89,11 @@
 			{
 				<tr>
 					<td>@loanPayment.Month</td>
-					<td>@loanPayment.Payment.ToString("C")</td>
-					<td>@loanPayment.MonthlyPrincipal.ToString("C")</td>
-					<td>@loanPayment.MonthlyInterest.ToString("C")</td>
-					<td>@loanPayment.TotalInterest.ToString("C")</td>
-					<td>@loanPayment.Balance.ToString("C")</td>
+					<td>@loanPayment.Payment.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+					<td>@loanPayment.MonthlyPrincipal.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+					<td>@loanPayment.MonthlyInterest.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+					<td>@loanPayment.TotalInterest.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+					<td>@loanPayment.Balance.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
 				</tr>
 			}
 		</tbody>
