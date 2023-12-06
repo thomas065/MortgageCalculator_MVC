@@ -15,7 +15,7 @@ namespace MortgageCalculator_MVC.Helpers
             // for loop
             for (int month = 1; month <= loan.Term; month++)
             {
-                decimal monthlyInterst = CalMonthlyInterest(balance, monthlyRate);
+               decimal monthlyInterst = CalMonthlyInterest(balance, monthlyRate);
                 totalInterest += monthlyInterst;
                 decimal monthlyPrincipal = loan.Payment - monthlyInterst;
                 balance -= monthlyPrincipal;
@@ -48,7 +48,6 @@ namespace MortgageCalculator_MVC.Helpers
 
             double fixedPayment = (fixedAmount * fixedRate) / (1 - Math.Pow(1 + fixedRate, -term));
 
-
             return Convert.ToDecimal(fixedPayment);
         }
 
@@ -59,7 +58,6 @@ namespace MortgageCalculator_MVC.Helpers
 
         private decimal CalMonthlyInterest(decimal balance, decimal monthlyRate)
         {
-
 
             return balance * monthlyRate;
         }
